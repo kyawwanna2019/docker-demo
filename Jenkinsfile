@@ -5,16 +5,11 @@ node {
        checkout scm
     } 
 
-    stage("build & SonarQube analysis") {
-          node {
-              nodejs(nodeJSInstallationName: "nodejs"){
-                //sh "npm install"
-                withSonarQubeEnv('sonar') {
-                    sh "npm install sonar-scanner"
-                    sh "npm run sonar"
-                }
-              }
-          }
+    stage('SonarQube analysis') {
+        def scannerHome = tool 'SonarScanner';
+        withSonarQubeEnv('sonar') { // If you have configured more than one global server connection, you can specify its name
+        sh "${scannerHome}/bin/sonar-scanner"
+        }
     }
 
     stage("Quality Gate"){
