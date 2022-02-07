@@ -7,9 +7,12 @@ node {
 
     stage("build & SonarQube analysis") {
           node {
-              withSonarQubeEnv('sonar') {
-                 sh "npm install sonar-scanner"
-                 sh "npm run sonar"
+              nodejs(nodeJSInstallationName: "nodejs"){
+                sh "npm install"
+                withSonarQubeEnv('sonar') {
+                    sh "npm install sonar-scanner"
+                    sh "npm run sonar"
+                }
               }
           }
     }
