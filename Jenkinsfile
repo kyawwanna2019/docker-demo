@@ -3,8 +3,7 @@ node {
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-        git https://github.com/kyawwanna2019/docker-demo.git
-        //checkout scm
+        checkout scm
     }
 
     stage('Build image') {
