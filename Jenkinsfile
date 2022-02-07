@@ -1,5 +1,6 @@
 node {
     def app
+    def imageName = 'kwn2019/docker-demo'
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -10,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("kwn2019/docker-demo")
+        app = docker.build("${imageName}")
     }
 
     stage('Test image') {
