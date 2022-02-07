@@ -1,0 +1,8 @@
+sonar.projectKey=Docker-Demo-Project
+sonar.projectName=Docker-Demo-Project
+sonar.projectVersion=1.0
+sonar.source=.
+sonar.sourceEncoding=UTF-8
+sonar.host.url=http://localhost:8086/
+sonar.login=1ea7f4498c55ed7afb58df84e3641e58c9112486
+sonar.exclusions=**/node_modules/**,docker-compose.yml,DOckerfile,Jenkinsfile,README.md,sonar-project-properties
