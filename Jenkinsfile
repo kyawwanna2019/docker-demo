@@ -6,11 +6,10 @@ node {
     } 
 
     stage("build & SonarQube analysis") {
-          def scannerHome = tool 'sonarscan';
           node {
               withSonarQubeEnv('sonar') {
-                 //sh 'mvn clean package sonar:sonar'
-                 sh "${scannerHome}/bin/sonarscan"
+                 sh "npm install sonar-scanner"
+                 sh "npm run sonar"
               }
           }
     }
