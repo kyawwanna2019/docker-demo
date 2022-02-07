@@ -13,13 +13,7 @@ node {
 
     stage('SonarQube analysis') {
       steps {
-        script {
-          /*  
-          def scannerHome = tool 'sonarscan';
-          withSonarQubeEnv('sonar') {
-            sh "${tool("sonarscan ")}/bin/sonar-scanner -Dsonar.projectKey=reactapp -Dsonar.projectName=reactapp"
-          }
-          */ 
+        script { 
           def scannerHome = tool 'SonarScanner';
           withSonarQubeEnv('sonar') {
             sh "${scannerHome}/bin/sonarscan"
