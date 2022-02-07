@@ -25,6 +25,8 @@ node {
         }
         */
         sh 'echo "Tests passed"'
+        sh "docker build -t ${imageName}-test -f Dockerfile.test ." 
+        sh "docker run --rm ${imageName}-test"
     }
 
     stage('Push image') {
